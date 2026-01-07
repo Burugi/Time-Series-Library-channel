@@ -1,0 +1,13 @@
+# SegRNN model-specific hyperparameters
+model_params:
+  d_model:
+    type: categorical
+    choices: [64, 128, 256, 512]
+
+  seg_len:
+    type: categorical
+    choices: [6, 12, 24]
+
+  rnn_type:
+    type: categorical
+    choices: ['gru', 'lstm']

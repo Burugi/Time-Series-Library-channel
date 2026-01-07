@@ -1,0 +1,9 @@
+# DLinear model-specific hyperparameters
+model_params:
+  moving_avg:
+    type: categorical
+    choices: [7, 13, 25]
+
+  individual:
+    type: categorical
+    choices: [false]

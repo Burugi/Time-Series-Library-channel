@@ -1,0 +1,79 @@
+# ModernTCN model-specific hyperparameters
+model_params:
+  patch_size: # seq_len 36 설정 시, 안될 것을 주의해야함.
+    type: categorical
+    choices: [4, 8, 16]
+
+  patch_stride:
+    type: categorical
+    choices: [4, 8, 16]
+
+  stem_ratio:
+    type: int
+    min: 1
+    max: 3
+
+  downsample_ratio:
+    type: categorical
+    choices: [2, 4]
+
+  ffn_ratio:
+    type: categorical
+    choices: [2, 4]
+
+  num_blocks:
+    type: categorical
+    choices: [[1, 1, 1, 1], [2, 2, 2, 2]]
+
+  large_size:
+    type: categorical
+    choices: [[51, 49, 47, 13], [31, 29, 27, 13]]
+
+  small_size:
+    type: categorical
+    choices: [[5, 5, 5, 5], [3, 3, 3, 3]]
+
+  dims:
+    type: categorical
+    choices: [[64, 128, 256, 512], [32, 64, 128, 256]]
+
+  dw_dims:
+    type: categorical
+    choices: [[64, 128, 256, 512], [32, 64, 128, 256]]
+
+  small_kernel_merged:
+    type: categorical
+    choices: [false]
+
+  head_dropout:
+    type: float
+    min: 0.1
+    max: 0.5
+
+  use_multi_scale: # seq_len 36으로 설정시에는 안됨.
+    type: categorical
+    choices: [false]
+
+  revin:
+    type: categorical
+    choices: [true, false]
+
+  affine:
+    type: categorical
+    choices: [true, false]
+
+  subtract_last:
+    type: categorical
+    choices: [false]
+
+  individual:
+    type: categorical
+    choices: [false]
+
+  kernel_size:
+    type: categorical
+    choices: [7, 13, 25]
+
+  decomposition: # seq_len 36으로 설정시에는 안됨.
+    type: categorical
+    choices: [false]

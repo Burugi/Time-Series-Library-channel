@@ -1,0 +1,28 @@
+# TimeMixer model-specific hyperparameters
+model_params:
+  d_model:
+    type: categorical
+    choices: [64, 128, 256, 512]
+
+  d_ff:
+    type: categorical
+    choices: [128, 256, 512, 1024]
+
+  e_layers:
+    type: int
+    min: 1
+    max: 3
+
+  down_sampling_layers:
+    type: int
+    min: 1
+    max: 3
+
+  down_sampling_window:
+    type: int
+    min: 1
+    max: 3
+
+  down_sampling_method:
+    type: categorical
+    choices: ['avg', 'max', 'conv']

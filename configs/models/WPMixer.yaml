@@ -1,0 +1,38 @@
+# WPMixer model-specific hyperparameters
+model_params:
+  d_model:
+    type: categorical
+    choices: [64, 128, 256, 512]
+
+  wavelet:
+    type: categorical
+    choices: ['db1', 'db2', 'db4', 'db8', 'sym2', 'sym3']
+
+  level:
+    type: int
+    min: 1
+    max: 3
+
+  patch_len:
+    type: int
+    min: 8
+    max: 32
+
+  patch_stride:
+    type: int
+    min: 4
+    max: 16
+
+  tfactor:
+    type: int
+    min: 2
+    max: 5
+
+  dfactor:
+    type: int
+    min: 2
+    max: 5
+
+  no_decomposition:
+    type: categorical
+    choices: [true, false]

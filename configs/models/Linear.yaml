@@ -1,0 +1,5 @@
+# Linear model-specific hyperparameters
+model_params:
+  hidden_size:
+    type: categorical
+    choices: [64, 128, 256, 512]

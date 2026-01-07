@@ -1,0 +1,10 @@
+# LightTS model-specific hyperparameters
+model_params:
+  d_model:
+    type: categorical
+    choices: [64, 128, 256, 512]
+
+  chunk_size:
+    type: int
+    min: 8
+    max: 32

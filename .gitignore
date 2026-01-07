@@ -1,0 +1,8 @@
+# Python
+__pycache__/
+
+# exp 
+dataset/
+hyperopt_archive/
+results/
+*.log

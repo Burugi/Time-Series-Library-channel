@@ -1,0 +1,14 @@
+# DSSRNN model-specific hyperparameters
+model_params:
+  hidden_size:
+    type: categorical
+    choices: [64, 128, 256, 512]
+
+  num_layers:
+    type: int
+    min: 1
+    max: 4
+
+  kernel_size:
+    type: categorical
+    choices: [3, 7, 13, 25]

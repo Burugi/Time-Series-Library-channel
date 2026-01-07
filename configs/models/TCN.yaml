@@ -1,0 +1,10 @@
+# TCN model-specific hyperparameters
+model_params:
+  num_channels:
+    type: categorical
+    choices: [[16, 32, 64], [32, 64, 128], [64, 128, 256]]
+
+  kernel_size:
+    type: int
+    min: 3
+    max: 7
