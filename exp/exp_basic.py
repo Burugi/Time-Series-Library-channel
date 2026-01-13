@@ -5,7 +5,7 @@ from models import (
     DLinear, Transformer, TimesNet, TSMixer, TiDE,
     Informer, Pyraformer, MICN, LightTS, TimeFilter,
     MultiPatchFormer, WPMixer,
-    Linear, TCN, RNN, DSSRNN, SSRNN
+    Linear, TCN, RNN, DSSRNN, SSRNN, DUET, BrickTS
 )
 from utils.tools import dotdict
 
@@ -35,6 +35,8 @@ class Exp_Basic:
             'RNN': RNN,
             'DSSRNN': DSSRNN,
             'SSRNN': SSRNN,
+            'DUET': DUET,
+            'BrickTS': BrickTS 
         }
         self.device = self._acquire_device()
         self._prepare_model_configs()

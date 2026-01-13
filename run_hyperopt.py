@@ -32,6 +32,7 @@ def main():
                             'RNN',
                             'DUET',
                             'ModernTCN',
+                            'BrickTS'
                         ],
                         help='model name')
 

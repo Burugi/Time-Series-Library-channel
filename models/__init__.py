@@ -7,6 +7,7 @@ from . import TemporalFusionTransformer, SCINet, PAttn, TimeXer
 from . import WPMixer, MultiPatchFormer, KANAD, MSGNet, TimeFilter
 from . import Linear, TCN, RNN, DSSRNN, SSRNN
 from . import ModernTCN, DUET
+from . import brickts as BrickTS
 
 # Optional models - gracefully skip if dependencies are missing
 try:

@@ -1,0 +1,83 @@
+# BrickTS model hyperparameters
+# Three-axis modular forecasting model
+# Note: channel_independent is controlled by run_training.py/run_hyperopt.py via --mode flag
+
+model_params:
+  # ==========================================
+  # Axis Selection (Core)
+  # ==========================================
+  level_type:
+    type: categorical
+    choices: [direct, decomposition, spectral]
+
+  scope_type:
+    type: categorical
+    choices: [global, local, hierarchical, sparse]
+
+  arch_type:
+    type: categorical
+    choices: [mlp, rnn, cnn, transformer]
+
+  # ==========================================
+  # Common Hyperparameters
+  # ==========================================
+  d_model:
+    type: categorical
+    choices: [64, 128, 256, 512]
+
+  # ==========================================
+  # Level-specific: Decomposition
+  # ==========================================
+  moving_avg_kernel:
+    type: categorical
+    choices: [7, 13, 25]
+
+  # ==========================================
+  # Level-specific: Spectral
+  # ==========================================
+  spectral_mode:
+    type: categorical
+    choices: [mag, realimag]
+
+  # ==========================================
+  # Scope-specific: Local
+  # ==========================================
+  local_kernel_size:
+    type: categorical
+    choices: [3, 5, 7]
+
+  # ==========================================
+  # Scope-specific: Sparse
+  # ==========================================
+  sparse_topk_ratio:
+    type: float
+    min: 0.2
+    max: 0.8
+
+  # ==========================================
+  # Architecture-specific: RNN
+  # ==========================================
+  rnn_num_layers:
+    type: int
+    min: 1
+    max: 3
+
+  # ==========================================
+  # Architecture-specific: CNN
+  # ==========================================
+  cnn_n_layers:
+    type: int
+    min: 2
+    max: 4
+
+  # ==========================================
+  # Architecture-specific: Transformer
+  # ==========================================
+  n_heads:
+    type: categorical
+    choices: [4, 8]
+
+  e_layers:
+    type: int
+    min: 1
+    max: 3
