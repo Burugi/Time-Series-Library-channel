@@ -292,11 +292,13 @@ def main():
                     'mspe': float(mspe)
                 })
 
+                num_params = sum(p.numel() for p in exp.model.parameters())
                 scalability_results.append({
                     'train_time': float(train_time),
                     'train_memory_gb': float(train_memory),
                     'inference_time': float(inference_time),
-                    'inference_memory_gb': float(inference_memory)
+                    'inference_memory_gb': float(inference_memory),
+                    'num_params': num_params
                 })
 
                 torch.cuda.empty_cache()
@@ -321,7 +323,8 @@ def main():
                     'inference_time_mean': np.mean([r['inference_time'] for r in scalability_results]),
                     'inference_time_std': np.std([r['inference_time'] for r in scalability_results]),
                     'inference_memory_gb_mean': np.mean([r['inference_memory_gb'] for r in scalability_results]),
-                    'inference_memory_gb_std': np.std([r['inference_memory_gb'] for r in scalability_results])
+                    'inference_memory_gb_std': np.std([r['inference_memory_gb'] for r in scalability_results]),
+                    'num_params': scalability_results[0]['num_params']
                 }
             }
 
@@ -379,11 +382,13 @@ def main():
                 'mspe': float(mspe)
             })
 
+            num_params = sum(p.numel() for p in exp.model.parameters())
             scalability_results.append({
                 'train_time': float(train_time),
                 'train_memory_gb': float(train_memory),
                 'inference_time': float(inference_time),
-                'inference_memory_gb': float(inference_memory)
+                'inference_memory_gb': float(inference_memory),
+                'num_params': num_params
             })
 
             # Collect per-channel results
@@ -436,7 +441,8 @@ def main():
             'inference_time_mean': np.mean([r['inference_time'] for r in scalability_results]),
             'inference_time_std': np.std([r['inference_time'] for r in scalability_results]),
             'inference_memory_gb_mean': np.mean([r['inference_memory_gb'] for r in scalability_results]),
-            'inference_memory_gb_std': np.std([r['inference_memory_gb'] for r in scalability_results])
+            'inference_memory_gb_std': np.std([r['inference_memory_gb'] for r in scalability_results]),
+            'num_params': scalability_results[0]['num_params']
         }
 
         all_results['overall'] = overall_results
