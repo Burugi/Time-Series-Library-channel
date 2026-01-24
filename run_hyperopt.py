@@ -32,7 +32,12 @@ def main():
                             'RNN',
                             'DUET',
                             'ModernTCN',
-                            'BrickTS'
+                            'BrickTS',
+                            'TimeXer',
+                            'ARIMA',
+                            'NBeats',
+                            'iTransformer',
+                            'VAR'
                         ],
                         help='model name')
 

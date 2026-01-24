@@ -112,8 +112,9 @@ class ResolutionBranch(nn.Module):
         self.embedding_dropout = embedding_dropout
         self.tfactor = tfactor
         self.dfactor = dfactor
-        self.patch_len = patch_len
-        self.patch_stride = patch_stride
+        # Adjust patch_len and patch_stride to fit input_seq
+        self.patch_len = min(patch_len, input_seq)
+        self.patch_stride = min(patch_stride, self.patch_len)
         self.patch_num = int((self.input_seq - self.patch_len) / self.patch_stride + 2)
 
         self.patch_norm = nn.BatchNorm2d(self.channel)

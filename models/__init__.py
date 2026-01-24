@@ -6,7 +6,7 @@ from . import Koopa, TiDE, FreTS, TimeMixer, TSMixer, SegRNN
 from . import TemporalFusionTransformer, SCINet, PAttn, TimeXer
 from . import WPMixer, MultiPatchFormer, KANAD, MSGNet, TimeFilter
 from . import Linear, TCN, RNN, DSSRNN, SSRNN
-from . import ModernTCN, DUET
+from . import ModernTCN, DUET, TimeXer, iTransformer, ARIMA, NBeats, VAR
 from . import brickts as BrickTS
 
 # Optional models - gracefully skip if dependencies are missing
@@ -59,6 +59,7 @@ __all__ = [
     'MambaSimple', 'TemporalFusionTransformer', 'SCINet', 'PAttn', 'TimeXer',
     'WPMixer', 'MultiPatchFormer', 'KANAD', 'MSGNet', 'TimeFilter',
     'Linear', 'TCN', 'RNN', 'DSSRNN', 'SSRNN',
-    'ModernTCN', 'DUET',
+    'ModernTCN', 'DUET','TimeXer', 'iTransformer', 'ARIMA', 'NBeats', 'VAR',
+    'BrickTS',
     'Sundial', 'TimeMoE', 'Chronos', 'Moirai', 'TiRex', 'TimesFM', 'Chronos2'
 ]

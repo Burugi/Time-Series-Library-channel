@@ -5,7 +5,8 @@ from models import (
     DLinear, Transformer, TimesNet, TSMixer, TiDE,
     Informer, Pyraformer, MICN, LightTS, TimeFilter,
     MultiPatchFormer, WPMixer,
-    Linear, TCN, RNN, DSSRNN, SSRNN, DUET, BrickTS
+    Linear, TCN, RNN, DSSRNN, SSRNN, DUET, BrickTS,
+    TimeXer, iTransformer, ARIMA, NBeats, VAR
 )
 from utils.tools import dotdict
 
@@ -36,7 +37,12 @@ class Exp_Basic:
             'DSSRNN': DSSRNN,
             'SSRNN': SSRNN,
             'DUET': DUET,
-            'BrickTS': BrickTS 
+            'BrickTS': BrickTS,
+            'TimeXer': TimeXer,
+            'iTransformer': iTransformer,
+            'ARIMA': ARIMA,
+            'NBeats': NBeats,
+            'VAR': VAR
         }
         self.device = self._acquire_device()
         self._prepare_model_configs()

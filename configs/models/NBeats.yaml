@@ -1,0 +1,26 @@
+# N-BEATS model-specific hyperparameters
+model_params:
+  d_model:
+    type: categorical
+    choices: [128, 256, 512]
+
+  e_layers:
+    type: int
+    min: 2
+    max: 6
+
+  num_blocks:
+    type: int
+    min: 1
+    max: 5
+
+  stack_types:
+    type: categorical
+    choices:
+      - ['trend', 'seasonality', 'generic']
+      - ['generic', 'generic', 'generic']
+      - ['trend', 'seasonality']
+
+  individual:
+    type: categorical
+    choices: [true, false]

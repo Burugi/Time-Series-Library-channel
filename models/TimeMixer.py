@@ -188,6 +188,15 @@ class Model(nn.Module):
 
     def __init__(self, configs):
         super(Model, self).__init__()
+
+        # Adjust down_sampling_layers to ensure minimum sequence length after downsampling
+        if configs.down_sampling_layers > 0 and configs.down_sampling_window > 1:
+            min_seq_len = configs.seq_len // (configs.down_sampling_window ** configs.down_sampling_layers)
+            if min_seq_len < 2:
+                import math
+                max_layers = int(math.log(configs.seq_len / 2) / math.log(configs.down_sampling_window))
+                configs.down_sampling_layers = max(0, max_layers)
+
         self.configs = configs
         self.task_name = configs.task_name
         self.seq_len = configs.seq_len
@@ -297,7 +306,7 @@ class Model(nn.Module):
                                   kernel_size=3, padding=padding,
                                   stride=self.configs.down_sampling_window,
                                   padding_mode='circular',
-                                  bias=False)
+                                  bias=False).to(x_enc.device)
         else:
             return x_enc, x_mark_enc
         # B,T,C -> B,C,T

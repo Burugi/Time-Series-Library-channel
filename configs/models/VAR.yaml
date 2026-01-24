@@ -1,0 +1,11 @@
+# VAR model-specific hyperparameters (using statsmodels)
+# No training required - fits VAR on each input sequence
+model_params:
+  var_order:
+    type: int
+    min: 1
+    max: 10
+
+  use_trend:
+    type: categorical
+    choices: [true, false]

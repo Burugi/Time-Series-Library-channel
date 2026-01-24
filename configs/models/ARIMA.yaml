@@ -1,0 +1,17 @@
+# ARIMA model-specific hyperparameters (using statsmodels)
+# No training required - fits ARIMA on each input sequence
+model_params:
+  ar_order:
+    type: int
+    min: 1
+    max: 10
+
+  diff_order:
+    type: int
+    min: 0
+    max: 2
+
+  ma_order:
+    type: int
+    min: 1
+    max: 5
