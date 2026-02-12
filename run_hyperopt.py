@@ -81,7 +81,7 @@ def main():
     parser.add_argument('--inverse', action='store_true', default=False, help='inverse output data')
 
     # Training config (for objective function)
-    parser.add_argument('--train_epochs', type=int, default=20, help='train epochs for each trial')
+    parser.add_argument('--train_epochs', type=int, default=30, help='train epochs for each trial')
     parser.add_argument('--patience', type=int, default=10, help='early stopping patience')
     parser.add_argument('--lradj', type=str, default='type1', help='adjust learning rate')
 

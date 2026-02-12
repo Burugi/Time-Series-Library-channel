@@ -229,16 +229,30 @@ class HyperparameterOptimizer:
             self.objective,
             n_trials=n_trials,
             timeout=timeout,
-            show_progress_bar=True
+            show_progress_bar=True,
+            catch=(Exception,)  # Continue optimization even if trials fail
         )
 
-        # Save results
-        results = {
-            'best_params': study.best_params,
-            'best_value': study.best_value,
-            'best_trial': study.best_trial.number,
-            'n_trials': len(study.trials)
-        }
+        # Check if any trial succeeded
+        completed_trials = [t for t in study.trials if t.state == optuna.trial.TrialState.COMPLETE]
+
+        if not completed_trials:
+            print("\nWarning: All trials failed. Using default parameters as optimal.")
+            results = {
+                'best_params': {},
+                'best_value': float('inf'),
+                'best_trial': -1,
+                'n_trials': len(study.trials),
+                'all_failed': True
+            }
+        else:
+            # Save results
+            results = {
+                'best_params': study.best_params,
+                'best_value': study.best_value,
+                'best_trial': study.best_trial.number,
+                'n_trials': len(study.trials)
+            }
 
         result_path = os.path.join(self.save_dir, 'hyperopt_results.json')
         with open(result_path, 'w') as f:

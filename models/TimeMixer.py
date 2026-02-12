@@ -327,8 +327,10 @@ class Model(nn.Module):
             x_enc_ori = x_enc_sampling
 
             if x_mark_enc is not None:
-                x_mark_sampling_list.append(x_mark_enc_mark_ori[:, ::self.configs.down_sampling_window, :])
-                x_mark_enc_mark_ori = x_mark_enc_mark_ori[:, ::self.configs.down_sampling_window, :]
+                # Match x_mark length to pooled x_enc length to avoid dimension mismatch
+                target_len = x_enc_sampling.size(2)  # T dimension after pooling
+                x_mark_enc_mark_ori = x_mark_enc_mark_ori[:, :target_len, :]
+                x_mark_sampling_list.append(x_mark_enc_mark_ori)
 
         x_enc = x_enc_sampling_list
         x_mark_enc = x_mark_sampling_list if x_mark_enc is not None else None

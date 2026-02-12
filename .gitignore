@@ -5,4 +5,7 @@ __pycache__/
 dataset/
 hyperopt_archive/
 results/
+results_paper/
+results_BrickTS/
 *.log
+*.ipynb

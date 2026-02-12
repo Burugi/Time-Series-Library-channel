@@ -91,8 +91,8 @@ def main():
                         help='directory containing hyperopt results (auto-generated if not specified)')
 
     # Training config
-    parser.add_argument('--train_epochs', type=int, default=50, help='train epochs')
-    parser.add_argument('--patience', type=int, default=25, help='early stopping patience')
+    parser.add_argument('--train_epochs', type=int, default=30, help='train epochs')
+    parser.add_argument('--patience', type=int, default=10, help='early stopping patience')
     parser.add_argument('--learning_rate', type=float, default=0.001, help='optimizer learning rate')
     parser.add_argument('--lradj', type=str, default='type1', help='adjust learning rate')
 
@@ -108,7 +108,7 @@ def main():
     parser.add_argument('--inverse', action='store_true', default=False, help='inverse output data')
 
     # Experiment config
-    parser.add_argument('--n_repeats', type=int, default=10, help='number of repeated experiments')
+    parser.add_argument('--n_repeats', type=int, default=5, help='number of repeated experiments')
 
     # Model define (defaults will be overridden by hyperopt if use_hyperopt=True, from Time-Series-Library-origin/run.py)
     parser.add_argument('--expand', type=int, default=2, help='expansion factor for Mamba')
